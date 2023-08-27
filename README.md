@@ -30,3 +30,13 @@
 - node
 - validator
 - winston
+
+---
+
+### Ссылки на проект
+
+Адрес репозитория: https://github.com/dimanakov/movies-explorer-api
+
+IP 158.160.10.224
+
+Backend https://api.moviebag.nomoredomainsicu.ru

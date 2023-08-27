@@ -16,7 +16,7 @@ mongoose.connect(DB_URL);
 
 app.use(require('./middlewares/limiter')); // ограничитель запросов
 
-app.use(cors({ origin: ['https://get-mesto.nomoreparties.co', 'http://localhost:4001'] }));
+app.use(cors({ origin: 'https://moviebag.nomoredomainsicu.ru' }));
 app.use(helmet());
 app.use(express.json());
 // все роуты приложения

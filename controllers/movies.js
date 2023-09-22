@@ -46,7 +46,7 @@ module.exports.addMovie = (req, res, next) => {
 };
 
 module.exports.removeMovie = (req, res, next) => {
-  Movie.findById(req.params._id)
+  Movie.findOne({ movieId: req.params._id })
     .then((movie) => {
       if (!movie) {
         next(new NOT_FOUND_404('Фильм не найден'));
@@ -58,7 +58,11 @@ module.exports.removeMovie = (req, res, next) => {
       }
       Movie.deleteOne(movie)
         .then(() => {
-          res.send({ message: 'Фильм удалён из сохранённых' });
+          Movie.find({ owner: req.user._id })
+            .then((movies) => {
+              res.send(movies);
+            })
+            .catch(next);
         })
         .catch(next);
     })

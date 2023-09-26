@@ -24,7 +24,7 @@ module.exports.createUser = (req, res, next) => {
             data: {
               name: user.name,
               email: user.email,
-              _id: user._id,
+              // _id: user._id,
             },
           });
         });

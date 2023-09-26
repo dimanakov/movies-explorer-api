@@ -7,7 +7,7 @@ const User = require('../models/user');
 module.exports.getUserProfile = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => {
-      res.send({ name: user.name, email: user.email, _id: user._id });
+      res.send({ name: user.name, email: user.email });
     })
     .catch(next);
 };
@@ -24,7 +24,7 @@ module.exports.updateUserProfile = (req, res, next) => {
         next(new NOT_FOUND_404('пользователь по указанному _id не найден'));
         return;
       }
-      res.send({ name: user.name, email: user.email, _id: user._id });
+      res.send({ name: user.name, email: user.email });
     })
     .catch((err) => {
       if (err.code === 11000) {

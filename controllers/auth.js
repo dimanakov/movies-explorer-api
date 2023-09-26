@@ -19,12 +19,11 @@ module.exports.createUser = (req, res, next) => {
         },
       )
         .then((user) => {
-          // успешная регистрация. Возращаем данные пользователя: имя, почта, Id
+          // успешная регистрация. Возращаем данные пользователя: имя, почта
           res.status(201).send({
             data: {
               name: user.name,
-              email: user.email,
-              // _id: user._id,
+              email: user.email
             },
           });
         });

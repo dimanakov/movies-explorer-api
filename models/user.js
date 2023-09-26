@@ -36,13 +36,13 @@ userSchema.statics.findUserByCredentials = function (email, password) {
     .then((user) => {
       // не нашёлся — отклоняем промис
       if (!user) {
-        return Promise.reject(new UNAUTHORIZED_401('Неправильные почта или пароль'));
+        return Promise.reject(new UNAUTHORIZED_401('Вы ввели неправильный логин или пароль.'));
       }
       // нашёлся — сравниваем хеши
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            return Promise.reject(new UNAUTHORIZED_401('Неправильные почта или пароль'));
+            return Promise.reject(new UNAUTHORIZED_401('Вы ввели неправильный логин или пароль.'));
           }
 
           return user;

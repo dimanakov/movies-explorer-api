@@ -16,7 +16,7 @@ mongoose.connect(DB_URL);
 
 app.use(require('./middlewares/limiter')); // ограничитель запросов
 
-app.use(cors({ origin: 'https://moviebag.nomoredomainsicu.ru' }));
+app.use(cors({ origin: ['https://moviebag.nomoredomainsicu.ru', 'https://localhost:3001'] }));
 app.use(helmet());
 app.use(express.json());
 // все роуты приложения

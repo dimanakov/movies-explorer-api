@@ -33,7 +33,7 @@ module.exports.createUser = (req, res, next) => {
       // если введённая почта уже используется, то БД выдаст ошибку с кодом 11000
       if (err.code === 11000) {
         // сообщаем пользователю ошибку
-        next(new CONFLICT_409('введённый email уже используется'));
+        next(new CONFLICT_409('Пользователь с таким email уже существует.'));
         return;
       }
       next(err);

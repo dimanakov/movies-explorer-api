@@ -46,7 +46,7 @@ module.exports.addMovie = (req, res, next) => {
 };
 
 module.exports.removeMovie = (req, res, next) => {
-  Movie.findOne({ movieId: req.params._id })
+  Movie.findOne({ movieId: req.params._id, owner: req.user._id })
     .then((movie) => {
       if (!movie) {
         next(new NOT_FOUND_404('Фильм не найден'));
